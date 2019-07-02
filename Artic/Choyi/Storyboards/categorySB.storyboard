@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="peU-fW-L4y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ird-62-9w2">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,6 +15,9 @@
         </array>
         <array key="NanumBarunGothicLight.ttf">
             <string>NanumBarunGothicLight</string>
+        </array>
+        <array key="NanumSquareExtraBold.ttf">
+            <string>NanumSquareEB</string>
         </array>
     </customFonts>
     <scenes>
@@ -136,10 +139,10 @@
             </objects>
             <point key="canvasLocation" x="1515.9420289855075" y="97.767857142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Archive List-->
         <scene sceneID="vwv-PZ-kVS">
             <objects>
-                <viewController id="Ird-62-9w2" sceneMemberID="viewController">
+                <viewController id="Ird-62-9w2" customClass="ArchiveList" customModule="Artic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cxq-Dh-i1Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,7 +151,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="170" id="MKO-rC-KgU">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArchiveListCell" rowHeight="170" id="MKO-rC-KgU" customClass="ArchiveListCell" customModule="Artic" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MKO-rC-KgU" id="r1P-FA-m0a">
@@ -156,11 +159,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="PM과 디자이너가 서로 잘 소통하는 법을 알려주세요" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="t3f-pc-KyS">
-                                                    <rect key="frame" x="28" y="31" width="233" height="62"/>
+                                                    <rect key="frame" x="28" y="21" width="233" height="62"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="233" id="8zr-Qf-al8"/>
-                                                        <constraint firstAttribute="height" constant="62" id="lcT-gp-c9b"/>
+                                                        <constraint firstAttribute="height" priority="500" constant="62" id="lcT-gp-c9b"/>
                                                     </constraints>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" name="NanumBarunGothicLight" family="NanumBarunGothic" pointSize="21"/>
@@ -173,14 +176,35 @@
                                                         <constraint firstAttribute="height" constant="24" id="ifi-nf-cT1"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psq-iY-eG8">
+                                                    <rect key="frame" x="355.5" y="122.5" width="30.5" height="15.5"/>
+                                                    <fontDescription key="fontDescription" name="NanumSquareEB" family="NanumSquare" pointSize="14"/>
+                                                    <color key="textColor" red="0.30980392156862746" green="0.50196078431372548" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아티클" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLH-Yf-utm">
+                                                    <rect key="frame" x="313.5" y="122" width="38" height="17"/>
+                                                    <fontDescription key="fontDescription" name="NanumBarunGothic" family="NanumBarunGothic" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="psq-iY-eG8" secondAttribute="bottom" constant="21" id="EAA-Sw-RCN"/>
                                                 <constraint firstItem="t3f-pc-KyS" firstAttribute="leading" secondItem="r1P-FA-m0a" secondAttribute="leading" constant="28" id="I5r-X9-cQb"/>
                                                 <constraint firstAttribute="trailing" secondItem="qWH-IN-4r0" secondAttribute="trailing" constant="28" id="Lbf-Pe-Cbz"/>
-                                                <constraint firstItem="t3f-pc-KyS" firstAttribute="top" secondItem="r1P-FA-m0a" secondAttribute="top" constant="31" id="MPK-0u-Uci"/>
+                                                <constraint firstItem="t3f-pc-KyS" firstAttribute="top" secondItem="r1P-FA-m0a" secondAttribute="top" constant="21" id="MPK-0u-Uci"/>
                                                 <constraint firstItem="qWH-IN-4r0" firstAttribute="top" secondItem="r1P-FA-m0a" secondAttribute="top" constant="31" id="SDG-Ll-Eg8"/>
+                                                <constraint firstItem="gLH-Yf-utm" firstAttribute="centerY" secondItem="psq-iY-eG8" secondAttribute="centerY" id="ht2-mC-wtY"/>
+                                                <constraint firstItem="psq-iY-eG8" firstAttribute="leading" secondItem="gLH-Yf-utm" secondAttribute="trailing" constant="4" id="iUc-vQ-0Dt"/>
+                                                <constraint firstItem="psq-iY-eG8" firstAttribute="trailing" secondItem="qWH-IN-4r0" secondAttribute="trailing" id="oSh-VD-a1B"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="articleNumLabel" destination="psq-iY-eG8" id="eZ1-BW-IY9"/>
+                                            <outlet property="storedImageView" destination="qWH-IN-4r0" id="QJz-AY-UMI"/>
+                                            <outlet property="titleLabel" destination="t3f-pc-KyS" id="s76-0F-zwc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -194,10 +218,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hgw-gR-iID"/>
                     </view>
+                    <connections>
+                        <outlet property="archiveTable" destination="pYw-U4-Wfh" id="Dpf-Ld-UFz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hF-mJ-W1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2455" y="98"/>
+            <point key="canvasLocation" x="2453.6231884057975" y="97.767857142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rb5-Ei-irU">
